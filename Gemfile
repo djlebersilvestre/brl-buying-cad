@@ -5,6 +5,7 @@ gem 'rails', '4.2.0'
 gem 'unicorn'
 
 group :development, :test do
+  gem 'sqlite3'
   gem 'web-console'
   gem 'byebug'
   gem 'spring'

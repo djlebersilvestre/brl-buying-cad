@@ -8,6 +8,7 @@ gem 'unicorn'
 gem 'monetize'
 
 group :development, :test do
+  gem 'overcommit'
   gem 'sqlite3'
   gem 'web-console'
   gem 'byebug'

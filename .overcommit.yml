@@ -3,4 +3,5 @@ PreCommit:
     on_warn: fail
 
   Rspec:
+    enable: true
     on_warn: fail

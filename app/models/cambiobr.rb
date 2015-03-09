@@ -1,4 +1,4 @@
-require "open-uri"
+require 'open-uri'
 
 class Cambiobr
   def buy_cad_cost(cad)
@@ -20,11 +20,10 @@ class Cambiobr
 
   def current_cad_rate
     doc = Nokogiri::HTML(open(url_cad_rate))
-    doc.at_css("span.price").content
+    doc.at_css('span.price').content
   end
 
   def url_cad_rate
-    "http://www.cambiobr.com.br/dolarcanadense.html"
+    'http://www.cambiobr.com.br/dolarcanadense.html'
   end
 end
-

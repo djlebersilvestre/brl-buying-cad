@@ -1,6 +1,6 @@
 ENV['RAILS_ENV'] ||= 'test'
 
-if ENV['COVERAGE'] || true
+if ENV['COVERAGE']
   require 'simplecov-rcov'
   require 'simplecov'
 

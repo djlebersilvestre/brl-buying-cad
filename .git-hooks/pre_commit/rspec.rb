@@ -4,6 +4,7 @@ module Overcommit
       class Rspec < Base
         def run
           success = system("#{rspec_command}")
+          puts ">>>>>>>>>>>>>>>>>>>>>#{success}<<<<<<<<<<<"
 
           return :fail, 'Error running specs' unless success
 

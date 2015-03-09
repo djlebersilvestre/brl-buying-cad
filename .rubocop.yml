@@ -1,11 +1,17 @@
 Documentation:
   Enabled: false
 
+# Work around: if you run on single files like Gemfile you'll have snake_case
+# error message
+Style/FileName:
+  Enabled: false
+
 AllCops:
   # Include gemspec and Rakefile
   Include:
     - '**/*.gemspec'
     - '**/Rakefile'
+
   Exclude:
     - 'config/**/*'
     - 'vendor/**/*'
@@ -13,6 +19,8 @@ AllCops:
     - 'bin/rails'
     - 'bin/spring'
     - 'bin/rake'
+
+
   # By default, the rails cops are not run. Override in project or home
   # directory .rubocop.yml files, or by giving the -R/--rails option.
   RunRailsCops: true

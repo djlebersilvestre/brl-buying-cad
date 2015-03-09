@@ -5,7 +5,7 @@ describe Cambiobr do
     subject(:buy) { cambiobr.buy_cad_cost 1 }
 
     it 'calculates a buy of CAD with the current BRL rate' do
-      is_expected.to eq(2.62)
+      is_expected.to eq(2.61)
     end
   end
 end

@@ -4,9 +4,3 @@ PreCommit:
 
   Rspec:
     on_warn: fail
-
-  # TestPlugin:
-    # plugin_directory: lib/git_hooks
-    # enabled: true
-    # description: Checking for length of lines
-    # max: 5

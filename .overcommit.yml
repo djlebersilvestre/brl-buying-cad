@@ -4,3 +4,8 @@ PreCommit:
 
   Rspec:
     on_warn: fail
+
+  TrailingWhitespace:
+    exclude:
+      - '/spec/fixtures/vcr_cassettes/**/*.yml'
+

@@ -2,6 +2,7 @@ require 'open-uri'
 
 class Cambiobr
   def buy_cad_cost(cad)
+    errando
     cad * cad_to_brl_rate
   end
 

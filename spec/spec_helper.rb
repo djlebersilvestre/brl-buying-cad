@@ -1,15 +1,16 @@
 ENV['RAILS_ENV'] ||= 'test'
 
-if ENV['COVERAGE']
-  require 'simplecov-rcov'
-  require 'simplecov'
+require 'simplecov-rcov'
+require 'simplecov'
 
-  SimpleCov.formatter = SimpleCov::Formatter::RcovFormatter
-  SimpleCov.start do
-    add_filter 'spec/'
-    add_filter 'config/'
-    add_filter 'vendor/'
-  end
+SimpleCov.formatter = SimpleCov::Formatter::RcovFormatter
+SimpleCov.start do
+  minimum_coverage(90)
+  maximum_coverage_drop(0.1)
+
+  add_filter 'spec/'
+  add_filter 'config/'
+  add_filter 'vendor/'
 end
 
 require File.expand_path('../../config/environment', __FILE__)

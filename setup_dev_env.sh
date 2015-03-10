@@ -14,3 +14,5 @@ overcommit --install
 overcommit --sign pre-commit
 mv .git/hooks/post-checkout .git/hooks/post-checkout.sample
 sudo apt-get install shellcheck
+
+bundle exec spring rspec

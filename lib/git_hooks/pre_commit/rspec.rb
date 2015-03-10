@@ -3,6 +3,8 @@ module Overcommit
     module PreCommit
       class Rspec < Base
         def run
+          system('git checkout coverage/.last_run.json')
+
           success = system("#{rspec_command}")
 
           return :fail, 'Error running specs' unless success

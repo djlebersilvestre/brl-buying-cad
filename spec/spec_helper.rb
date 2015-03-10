@@ -13,10 +13,6 @@ SimpleCov.start do
   add_filter 'vendor/'
 end
 
-SimpleCov.at_exit do
-  system('git checkout coverage/.last_run.json')
-end
-
 require File.expand_path('../../config/environment', __FILE__)
 require 'rspec/rails'
 require 'vcr'

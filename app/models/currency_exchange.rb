@@ -12,7 +12,7 @@ class CurrencyExchange
     fail NoMethodError, error_msg
   end
 
-  def css_find_cad_rate
+  def css_find_cad_rate(_)
     raise_not_implemented __method__
   end
 
@@ -33,6 +33,6 @@ class CurrencyExchange
 
   def current_cad_rate
     doc = Nokogiri::HTML(open(url_find_cad_rate))
-    doc.at_css(css_find_cad_rate).content
+    css_find_cad_rate doc
   end
 end

@@ -1,10 +1,8 @@
-require 'open-uri'
-
 class Spmundi < CurrencyExchange
   private
 
-  def css_find_cad_rate
-    'span.calc_price'
+  def css_find_cad_rate(doc)
+    doc.at_css('span.calc_price').content
   end
 
   def url_find_cad_rate

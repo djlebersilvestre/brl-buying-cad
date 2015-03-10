@@ -12,8 +12,9 @@
 /db/*.sqlite3
 /db/*.sqlite3-journal
 
-# Ignore the default SQLite database.
+# Ignore the coverage files.
 /coverage
+!/coverage/.last_run.json
 
 # Ignore all logfiles and tempfiles.
 /log/*

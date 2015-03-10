@@ -1,3 +1,5 @@
+plugin_directory: 'lib/git_hooks'
+
 PreCommit:
   Rubocop:
     on_warn: fail

@@ -13,7 +13,7 @@ module Overcommit
         private
 
         def rspec_command
-          'bundle exec rspec -f progress'
+          'bundle exec rspec -f progress > /dev/null'
         end
       end
     end

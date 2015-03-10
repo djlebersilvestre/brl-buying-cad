@@ -13,7 +13,7 @@
 /db/*.sqlite3-journal
 
 # Ignore the coverage files.
-/coverage
+/coverage/*
 !/coverage/.last_run.json
 
 # Ignore all logfiles and tempfiles.

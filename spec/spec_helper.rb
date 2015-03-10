@@ -8,7 +8,7 @@ SimpleCov.start do
   `git checkout -q coverage/.last_run.json`
 
   minimum_coverage(90)
-  maximum_coverage_drop(0.1)
+  maximum_coverage_drop(1)
 
   add_filter 'spec/'
   add_filter 'config/'

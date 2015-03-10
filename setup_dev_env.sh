@@ -7,7 +7,7 @@ cd "$(dirname "$0")"
 sudo apt-get install shellcheck
 
 echo 'Using RVM (loading from .bash_profile)'
-source $HOME/.bash_profile
+source "$HOME"/.bash_profile
 rvm use 2.2.1@brl-buying-cad --create
 
 echo 'Vendorizing gems'

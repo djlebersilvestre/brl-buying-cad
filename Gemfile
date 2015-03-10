@@ -4,9 +4,6 @@ ruby '2.2.1'
 gem 'rails', '4.2.0'
 gem 'unicorn'
 
-# Parsing currency
-gem 'monetize'
-
 group :development, :test do
   gem 'sqlite3'
   gem 'web-console'

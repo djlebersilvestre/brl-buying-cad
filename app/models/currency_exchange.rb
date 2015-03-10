@@ -22,13 +22,20 @@ class CurrencyExchange
 
   def cad_to_brl_rate
     rate = current_cad_rate
-    parse_rate(rate)
+    parse_brl(rate)
   end
 
-  def parse_rate(rate_text)
-    Monetize.assume_from_symbol = true
-    rate = Monetize.parse rate_text
-    rate.to_f
+  def parse_brl(brl_text)
+    brl_regex = /(\$)?(\s){0,3}(?<float_str>(\d)+\.(\d)+)/
+
+    text = brl_text.gsub(/,/, '.')
+    match = text.match(brl_regex)
+
+    if match
+      match[:float_str].to_f
+    else
+      fail "Could not parse #{brl_text} in BRL"
+    end
   end
 
   def current_cad_rate

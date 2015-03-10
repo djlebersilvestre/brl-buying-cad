@@ -33,9 +33,6 @@ RSpec.configure do |config|
     mocks.verify_partial_doubles = true
   end
 
-  # Display some recommended warnings
-  config.warnings = true
-
   # Print the 10 slowest examples and example groups
   # config.profile_examples = 10
 

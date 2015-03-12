@@ -1,5 +1,5 @@
 module CadRateFinder
-  class Kantor < CurrencyExchange
+  class Kantor < Base
     private
 
     def css_find_cad_rate(doc)

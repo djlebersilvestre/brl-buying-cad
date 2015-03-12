@@ -1,5 +1,5 @@
 module CadRateFinder
-  class Lojamultimoney < CurrencyExchange
+  class Lojamultimoney < Base
     private
 
     def css_find_cad_rate(doc)

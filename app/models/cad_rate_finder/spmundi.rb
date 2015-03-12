@@ -1,5 +1,5 @@
 module CadRateFinder
-  class Spmundi < CurrencyExchange
+  class Spmundi < Base
     private
 
     def css_find_cad_rate(doc)

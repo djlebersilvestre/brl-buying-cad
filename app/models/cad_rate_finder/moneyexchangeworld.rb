@@ -1,5 +1,5 @@
 module CadRateFinder
-  class Moneyexchangeworld < CurrencyExchange
+  class Moneyexchangeworld < Base
     private
 
     def css_find_cad_rate(doc)

@@ -1,5 +1,5 @@
 module CadRateFinder
-  class Akgcorretora < CurrencyExchange
+  class Akgcorretora < Base
     private
 
     def css_find_cad_rate(doc)

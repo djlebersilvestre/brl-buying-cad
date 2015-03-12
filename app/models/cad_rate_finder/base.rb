@@ -1,7 +1,7 @@
 require 'open-uri'
 
 module CadRateFinder
-  class CurrencyExchange
+  class Base
     def rate_cad_in_brl(cad)
       cad * cad_to_brl_rate
     end

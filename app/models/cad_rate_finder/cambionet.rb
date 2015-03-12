@@ -1,5 +1,5 @@
 module CadRateFinder
-  class Cambionet < CurrencyExchange
+  class Cambionet < Base
     private
 
     def css_find_cad_rate(doc)

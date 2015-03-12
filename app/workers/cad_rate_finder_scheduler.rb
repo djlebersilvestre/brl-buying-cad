@@ -14,6 +14,6 @@ class CadRateFinderScheduler
   private
 
   def list_cad_rate_finders
-    CadRateFinder::CurrencyExchange.subclasses
+    CadRateFinder::Base.subclasses
   end
 end

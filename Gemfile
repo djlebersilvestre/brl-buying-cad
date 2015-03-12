@@ -7,6 +7,7 @@ gem 'unicorn'
 # Sidekiq gems
 gem 'sidekiq'
 gem 'sidekiq-failures'
+gem 'sidekiq-scheduler'
 gem 'sinatra', require: false
 
 # Better abstract OO approach

@@ -5,7 +5,6 @@ require 'simplecov'
 
 SimpleCov.formatter = SimpleCov::Formatter::RcovFormatter
 SimpleCov.start do
-  `git fetch`
   `git checkout origin/master coverage/.last_run.json`
 
   minimum_coverage(90)
@@ -20,6 +19,8 @@ require File.expand_path('../../config/environment', __FILE__)
 require 'rspec/rails'
 require 'vcr'
 require 'webmock'
+
+ActiveRecord::Migration.maintain_test_schema!
 
 RSpec.configure do |config|
   config.fixture_path = "#{::Rails.root}/spec/fixtures"

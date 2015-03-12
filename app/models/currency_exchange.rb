@@ -1,13 +1,13 @@
 require 'open-uri'
 
 class CurrencyExchange
-  abstract_method :css_find_cad_rate, :url_find_cad_rate
-
   def rate_cad_in_brl(cad)
     cad * cad_to_brl_rate
   end
 
   private
+
+  abstract_method :css_find_cad_rate, :url_find_cad_rate
 
   def cad_to_brl_rate
     rate = current_cad_rate

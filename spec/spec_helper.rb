@@ -5,7 +5,8 @@ require 'simplecov'
 
 SimpleCov.formatter = SimpleCov::Formatter::RcovFormatter
 SimpleCov.start do
-  `git checkout -q coverage/.last_run.json`
+  `git fetch`
+  `git checkout origin/master coverage/.last_run.json`
 
   minimum_coverage(90)
   maximum_coverage_drop(1)

@@ -1,0 +1,11 @@
+---
+:concurrency: 6
+:queues:
+  - [high, 3]
+  - [medium, 2]
+  - [low, 1]
+
+:schedule:
+  CadRateFinderScheduler:
+    every: [ '15m', first_in: '1s']
+    queue: high

@@ -4,6 +4,11 @@ ruby '2.2.1'
 gem 'rails', '4.2.0'
 gem 'unicorn'
 
+gem 'sidekiq'
+gem 'sidekiq-failures'
+gem 'sinatra', require: false
+gem 'slim'
+
 group :development, :test do
   gem 'sqlite3'
   gem 'web-console'

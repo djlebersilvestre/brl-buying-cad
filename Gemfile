@@ -4,10 +4,13 @@ ruby '2.2.1'
 gem 'rails', '4.2.0'
 gem 'unicorn'
 
+# Sidekiq gems
 gem 'sidekiq'
 gem 'sidekiq-failures'
 gem 'sinatra', require: false
-gem 'slim'
+
+# Better abstract OO approach
+gem 'abstract_method'
 
 group :development, :test do
   gem 'sqlite3'

@@ -1,24 +1,13 @@
 require 'open-uri'
 
 class CurrencyExchange
+  abstract_method :css_find_cad_rate, :url_find_cad_rate
+
   def rate_cad_in_brl(cad)
     cad * cad_to_brl_rate
   end
 
   private
-
-  def raise_not_implemented(method)
-    error_msg = "#{self.class} must implement abstract method #{method}"
-    fail NoMethodError, error_msg
-  end
-
-  def css_find_cad_rate(_)
-    raise_not_implemented __method__
-  end
-
-  def url_find_cad_rate
-    raise_not_implemented __method__
-  end
 
   def cad_to_brl_rate
     rate = current_cad_rate

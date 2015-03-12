@@ -18,7 +18,6 @@ group :development, :test do
   gem 'web-console'
   gem 'byebug'
   gem 'rspec-rails'
-  gem 'spring-commands-rspec'
   gem 'vcr'
   gem 'webmock',        require: false
   gem 'rubycritic',     require: false

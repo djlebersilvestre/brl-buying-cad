@@ -1,8 +1,10 @@
 ---
+:verbose: false
+:pidfile: ./tmp/pids/sidekiq.pid
 :concurrency: 6
 :queues:
   - [high, 3]
-  - [medium, 2]
+  - [default, 2]
   - [low, 1]
 
 :schedule:

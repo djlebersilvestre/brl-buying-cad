@@ -2,11 +2,13 @@
 class CadRateFinderScheduler
   include Sidekiq::Worker
 
+  sidekiq_options queue: :high
+
   def perform
     finders = list_cad_rate_finders
 
-    finders.each do |klass|
-      class_name = klass.to_s
+    finders.each do |finder|
+      class_name = finder.to_s
       CadRateFinderWorker.perform_async(class_name)
     end
   end

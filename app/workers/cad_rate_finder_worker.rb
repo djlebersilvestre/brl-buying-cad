@@ -1,7 +1,7 @@
 class CadRateFinderWorker
   include Sidekiq::Worker
 
-  sidekiq_options queue: :medium
+  sidekiq_options queue: :default
 
   def perform(class_name)
     finder = class_name.constantize.new
@@ -16,6 +16,7 @@ class CadRateFinderWorker
   private
 
   def exchange_house(name)
+    # TODO: create a new ExchageHouse if does not exist
     ExchangeHouse.find_by(name: name)
   end
 end

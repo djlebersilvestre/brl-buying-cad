@@ -1,15 +1,16 @@
 class DataFileImporter
   def import_into_db
     rates = generate_json_from_file
-    rates.each do |rate|
-      Rate.create(
-        exchange_house: finders[get_key(rate)],
-        value: rate['cad_rate'],
-        created_at: Time.parse(rate['timestamp'])
-      )
-    end
 
-    nil
+    ActiveRecord::Base.transaction do
+      rates.each do |rate|
+        Rate.create(
+          exchange_house: finders[get_key(rate)],
+          value: rate['cad_rate'],
+          read_at: Time.parse(rate['timestamp'])
+        )
+      end
+    end
   end
 
   private

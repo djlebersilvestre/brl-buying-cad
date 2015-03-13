@@ -3,6 +3,8 @@ module Overcommit
     module PreCommit
       class Rspec < Base
         def run
+          system('pwd')
+          system('tail -2 README.md')
           success = system("#{rspec_command}")
 
           return :fail, 'Error running specs' unless success

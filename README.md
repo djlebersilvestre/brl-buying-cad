@@ -3,7 +3,7 @@ Simple webapp to gather information from currency exchange houses and show good 
 Created to help me follow the CAD rates in Brazil and have a wise decision on where should I buy it. Also to publish some small projects in my Github.
 
 * Ruby version
-A2.2.1
+2.2.1
 
 * System dependencies
 rvm

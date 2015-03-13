@@ -3,17 +3,16 @@ module Overcommit
     module PreCommit
       class Rspec < Base
         def run
-          success = system("#{rspec_command}")
+          # We wanna run tests over the master codebase
+          system('git stash pop --index --quiet')
+
+          # Tests
+          success = system('bundle exec rspec > /dev/null')
+
+          # Restoring the original status for overcommit
+          system('git stash save --keep-index --quiet')
 
           return :fail, 'Error running specs' unless success
-
-          :pass
-        end
-
-        private
-
-        def rspec_command
-          'bundle exec rspec spec/ > /dev/null'
         end
       end
     end

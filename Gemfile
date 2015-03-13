@@ -3,6 +3,7 @@ ruby '2.2.1'
 
 gem 'rails', '4.2.0'
 gem 'unicorn'
+gem 'pg'
 
 # Sidekiq gems
 gem 'sidekiq'
@@ -14,7 +15,6 @@ gem 'sinatra', require: false
 gem 'abstract_method'
 
 group :development, :test do
-  gem 'sqlite3'
   gem 'web-console'
   gem 'byebug'
   gem 'rspec-rails'

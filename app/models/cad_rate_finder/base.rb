@@ -8,6 +8,7 @@ module CadRateFinder
 
     private
 
+    # TODO: improve selectors from some sites
     abstract_method :css_find_cad_rate, :url_find_cad_rate
 
     def cad_to_brl_rate

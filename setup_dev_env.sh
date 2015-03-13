@@ -3,8 +3,10 @@
 set -e
 cd "$(dirname "$0")"
 
-# Dependency for overcommit
-sudo apt-get install shellcheck
+# Dependency for overcommit and postgres
+sudo apt-get install -y shellcheck libpq-dev
+
+# TODO: we must prepare docker environment
 
 echo 'Using RVM (loading from .bash_profile)'
 source "$HOME"/.bash_profile

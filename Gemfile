@@ -16,7 +16,6 @@ gem 'abstract_method'
 
 group :development, :test do
   gem 'seed_dump'
-  gem 'rspec-sidekiq'
   gem 'web-console'
   gem 'byebug'
   gem 'rspec-rails'
@@ -25,4 +24,8 @@ group :development, :test do
   gem 'rubycritic', require: false
   gem 'simplecov-rcov', require: false
   gem 'database_cleaner', require: false
+end
+
+group :test do
+  gem 'rspec-sidekiq'
 end

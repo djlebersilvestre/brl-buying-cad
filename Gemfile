@@ -16,11 +16,13 @@ gem 'abstract_method'
 
 group :development, :test do
   gem 'seed_dump'
+  gem 'rspec-sidekiq'
   gem 'web-console'
   gem 'byebug'
   gem 'rspec-rails'
-  gem 'vcr'
-  gem 'webmock',        require: false
-  gem 'rubycritic',     require: false
+  gem 'vcr', require: false
+  gem 'webmock', require: false
+  gem 'rubycritic', require: false
   gem 'simplecov-rcov', require: false
+  gem 'database_cleaner', require: false
 end

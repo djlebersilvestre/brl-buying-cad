@@ -1,4 +1,3 @@
-# TODO: test it
 class CadRateFinderWorker
   include Sidekiq::Worker
 
@@ -7,15 +6,16 @@ class CadRateFinderWorker
   def perform(class_name)
     finder = class_name.constantize.new
 
-    data = {
-      company: class_name,
-      cad_rate: finder.rate_cad_in_brl(1),
-      timestamp: Time.now
-    }
+    Rate.create!(
+      exchange_house: exchange_house(class_name),
+      value: finder.rate_cad_in_brl(1),
+      read_at: Time.now
+    )
+  end
 
-    # TODO: persist into DB
-    File.open('log/cad_rates.json', 'a+') do |f|
-      f.write(data.to_json)
-    end
+  private
+
+  def exchange_house(name)
+    ExchangeHouse.find_by(name: name)
   end
 end

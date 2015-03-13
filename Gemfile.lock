@@ -66,6 +66,7 @@ GEM
     connection_pool (2.1.2)
     crack (0.4.2)
       safe_yaml (~> 1.0.0)
+    database_cleaner (1.4.1)
     debug_inspector (0.0.2)
     debugger-linecache (1.2.0)
     descendants_tracker (0.0.4)
@@ -143,6 +144,10 @@ GEM
       parser (~> 2.2.0.pre.7)
       rainbow (>= 1.99, < 3.0)
       unparser (~> 0.2.2)
+    rspec (3.2.0)
+      rspec-core (~> 3.2.0)
+      rspec-expectations (~> 3.2.0)
+      rspec-mocks (~> 3.2.0)
     rspec-core (3.2.1)
       rspec-support (~> 3.2.0)
     rspec-expectations (3.2.0)
@@ -159,6 +164,9 @@ GEM
       rspec-expectations (~> 3.2.0)
       rspec-mocks (~> 3.2.0)
       rspec-support (~> 3.2.0)
+    rspec-sidekiq (2.0.0)
+      rspec (~> 3.0, >= 3.0.0)
+      sidekiq (>= 2.4.0)
     rspec-support (3.2.2)
     ruby_parser (3.6.4)
       sexp_processor (~> 4.1)
@@ -249,9 +257,11 @@ PLATFORMS
 DEPENDENCIES
   abstract_method
   byebug
+  database_cleaner
   pg
   rails (= 4.2.0)
   rspec-rails
+  rspec-sidekiq
   rubycritic
   seed_dump
   sidekiq

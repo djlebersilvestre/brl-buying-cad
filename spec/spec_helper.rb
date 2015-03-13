@@ -16,16 +16,17 @@ SimpleCov.start do
 end
 
 require File.expand_path('../../config/environment', __FILE__)
-require 'rspec/rails'
 require 'vcr'
 require 'webmock'
+require 'rspec/rails'
+require 'database_cleaner'
 
 ActiveRecord::Migration.maintain_test_schema!
 
 RSpec.configure do |config|
   config.fixture_path = "#{::Rails.root}/spec/fixtures"
 
-  config.use_transactional_fixtures = true
+  config.use_transactional_fixtures = false
 
   config.expect_with :rspec do |expectations|
     expectations.include_chain_clauses_in_custom_matcher_descriptions = true
@@ -46,6 +47,12 @@ RSpec.configure do |config|
     options = example.metadata.slice(:record, :match_requests_on)
     options.except!(:example_group)
     VCR.use_cassette(name, options) { example.call }
+  end
+
+  config.before(:suite) do
+    DatabaseCleaner.strategy = :transaction
+    DatabaseCleaner.clean_with(:truncation)
+    Rails.application.load_seed
   end
 end
 

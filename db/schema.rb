@@ -24,11 +24,11 @@ ActiveRecord::Schema.define(version: 20150313133927) do
 
   create_table "rates", force: :cascade do |t|
     t.integer  "exchange_house_id", null: false
-    t.datetime "created_at",        null: false
+    t.datetime "read_at",           null: false
     t.float    "value",             null: false
   end
 
-  add_index "rates", ["exchange_house_id", "created_at"], name: "index_rates_on_exchange_house_id_and_created_at", unique: true, using: :btree
+  add_index "rates", ["exchange_house_id", "read_at"], name: "index_rates_on_exchange_house_id_and_read_at", unique: true, using: :btree
   add_index "rates", ["exchange_house_id"], name: "index_rates_on_exchange_house_id", using: :btree
 
   add_foreign_key "rates", "exchange_houses"

@@ -1,3 +1,5 @@
 class ExchangeHouse < ActiveRecord::Base
-  validates :name, presence: true
+  has_many :rates
+
+  validates :name, presence: true, uniqueness: true
 end

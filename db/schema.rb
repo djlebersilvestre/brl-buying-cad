@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150312220415) do
+ActiveRecord::Schema.define(version: 20150313133927) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -20,12 +20,15 @@ ActiveRecord::Schema.define(version: 20150312220415) do
     t.string "name", null: false
   end
 
+  add_index "exchange_houses", ["name"], name: "index_exchange_houses_on_name", unique: true, using: :btree
+
   create_table "rates", force: :cascade do |t|
     t.integer  "exchange_house_id", null: false
     t.datetime "created_at",        null: false
     t.float    "value",             null: false
   end
 
+  add_index "rates", ["exchange_house_id", "created_at"], name: "index_rates_on_exchange_house_id_and_created_at", unique: true, using: :btree
   add_index "rates", ["exchange_house_id"], name: "index_rates_on_exchange_house_id", using: :btree
 
   add_foreign_key "rates", "exchange_houses"

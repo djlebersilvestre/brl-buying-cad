@@ -171,6 +171,9 @@ GEM
     rufus-scheduler (2.0.24)
       tzinfo (>= 0.3.22)
     safe_yaml (1.0.4)
+    seed_dump (3.2.2)
+      activerecord (~> 4)
+      activesupport (~> 4)
     sexp_processor (4.4.5)
     sidekiq (3.3.2)
       celluloid (>= 0.16.0)
@@ -250,6 +253,7 @@ DEPENDENCIES
   rails (= 4.2.0)
   rspec-rails
   rubycritic
+  seed_dump
   sidekiq
   sidekiq-failures
   sidekiq-scheduler

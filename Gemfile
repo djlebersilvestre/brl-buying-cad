@@ -15,6 +15,7 @@ gem 'sinatra', require: false
 gem 'abstract_method'
 
 group :development, :test do
+  gem 'seed_dump'
   gem 'web-console'
   gem 'byebug'
   gem 'rspec-rails'

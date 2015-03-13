@@ -5,9 +5,9 @@ default: &default
   pool: 5
   database: brl_cad_development
   username: postgres
-  password: testing13032015
+  password: testing
   port: 5432
-  host: 172.17.0.4
+  host: 172.17.0.22
 
 development:
   <<: *default

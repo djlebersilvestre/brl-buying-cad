@@ -5,14 +5,10 @@ module Overcommit
         def run
           path = './tmp/rubycritic'
 
-          # We wanna run the critics over the master codebase
-          # system('git stash pop --index --quiet')
           # Runs the critics
           system("bundle exec rubycritic app/ lib/ --path #{path} > /dev/null")
           # Analysis
           error = analysis(path)
-          # Restoring the original status for overcommit
-          # system('git stash save --keep-index --quiet')
 
           return :fail, error if error
 

@@ -4,9 +4,6 @@ PreCommit:
   Rubocop:
     on_warn: fail
 
-  Rspec:
-    on_warn: fail
-
   TrailingWhitespace:
     exclude:
       - '/spec/fixtures/vcr_cassettes/**/*.yml'

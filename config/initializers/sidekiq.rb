@@ -1,7 +1,7 @@
 require 'sidekiq/web'
 
 # TODO: improve this initializer - use config files
-redis_host = 'redis://172.17.0.2:6379'
+redis_host = 'redis://172.17.0.3:6379'
 redis_namespace = 'sidekiq:brl_buying_cad'
 
 Sidekiq.configure_server do |config|

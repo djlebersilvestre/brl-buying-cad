@@ -7,8 +7,8 @@ Rails.application.configure do
   # and recreated between test runs. Don't rely on the data there!
   config.cache_classes = true
 
-  # Eager load to use features like Class.descendants
-  config.eager_load = true
+  # Do not eager load code on boot.
+  config.eager_load = false
 
   # Configure static file server for tests with Cache-Control for performance.
   config.serve_static_files   = true

@@ -1,7 +1,10 @@
 require 'open-uri'
+require 'descendants_loader'
 
 module CadRateFinder
   class Base
+    include DescendantsLoader
+
     def rate_cad_in_brl(cad)
       cad * cad_to_brl_rate
     end

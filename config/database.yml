@@ -7,7 +7,7 @@ default: &default
   username: postgres
   password: testing
   port: 5432
-  host: 172.17.0.22
+  host: 172.17.0.2
 
 development:
   <<: *default

@@ -31,9 +31,7 @@ if ! which docker > /dev/null; then
 else
   echo "Docker already installed. Skipping"
 fi
-set +e
 dkr_setup
-set -e
 
 echo "Setting up Postgres over docker"
 source <(curl https://raw.githubusercontent.com/djlebersilvestre/docker-postgres/master/commands.sh)

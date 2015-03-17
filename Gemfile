@@ -25,7 +25,6 @@ group :development, :test do
   gem 'spring-commands-rspec'
   gem 'vcr', require: false
   gem 'webmock', require: false
-  gem 'rubycritic', require: false
   gem 'simplecov-rcov', require: false
   gem 'database_cleaner', require: false
 end

@@ -6,7 +6,7 @@ module Overcommit
           path = './tmp/rubycritic'
 
           # Runs the critics
-          system("bundle exec rubycritic app/ lib/ --path #{path} > /dev/null")
+          system("rubycritic app/ lib/ --path #{path} > /dev/null")
           # Analysis
           error = analysis(path)
 

@@ -4,7 +4,7 @@ class MutantRunner
   def run
     find_classes.each do |klass|
       cmd = [cmd_bundle, cmd_options, klass].join(' ')
-      fail "#{klass} is not passing mutant validation" if system(cmd)
+      fail "#{klass} is not passing mutant validation" unless system(cmd)
     end
   end
 

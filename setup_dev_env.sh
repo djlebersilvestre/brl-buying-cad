@@ -24,9 +24,9 @@ overcommit --install
 overcommit --sign pre-commit
 mv .git/hooks/post-checkout .git/hooks/post-checkout.sample
 
+source <(curl https://raw.githubusercontent.com/djlebersilvestre/linux-scripts/master/dkr-commands.sh)
 if ! which docker > /dev/null; then
   echo "Setting up docker environment to provide dependencies for the application"
-  source <(curl https://raw.githubusercontent.com/djlebersilvestre/linux-scripts/master/dkr-commands.sh)
   dkr_install
 else
   echo "Docker already installed. Skipping"

@@ -24,18 +24,20 @@ overcommit --sign pre-commit
 mv .git/hooks/post-checkout .git/hooks/post-checkout.sample
 
 echo 'Setting up docker environment - dependencies of the application'
-# TODO: create linux-scripts to auto install and configure docker
+source <(curl https://raw.githubusercontent.com/djlebersilvestre/linux-scripts/master/dkr-commands.sh)
+dkr_install
+dkr_setup
 
 echo 'Setting up Postgres over docker'
 source <(curl https://raw.githubusercontent.com/djlebersilvestre/docker-postgres/master/commands.sh)
-pg-setup
-pg-start
+pg_setup
+pg_start
 bundle exec rake db:setup
 
 echo 'Setting up Redis over docker'
 source <(curl https://raw.githubusercontent.com/djlebersilvestre/linux-scripts/master/dkr-redis-commands.sh)
-redis-setup
-redis-start
+redis_setup
+redis_start
 
 echo 'Finally, testing for the first time'
 bundle exec spring rspec

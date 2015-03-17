@@ -8,6 +8,7 @@ sudo apt-get install -y libpq-dev shellcheck
 
 echo 'Loading RVM - it must be installed as user mode'
 [[ -s "$HOME/.rvm/scripts/rvm" ]] && source "$HOME/.rvm/scripts/rvm"
+rvm install ruby-2.1.2
 rvm use 2.2.1@brl-buying-cad --create
 
 echo 'Vendorizing gems'

@@ -16,19 +16,21 @@ gem 'sinatra', require: false
 gem 'abstract_method'
 gem 'descendants-loader'
 
+# Dev and test
 group :development, :test do
   gem 'seed_dump'
   gem 'web-console'
   gem 'byebug'
+end
+
+# Test only
+group :test do
   gem 'rspec-rails'
+  gem 'rspec-sidekiq'
   gem 'mutant-rspec'
   gem 'spring-commands-rspec'
   gem 'vcr', require: false
   gem 'webmock', require: false
   gem 'simplecov-rcov', require: false
   gem 'database_cleaner', require: false
-end
-
-group :test do
-  gem 'rspec-sidekiq'
 end

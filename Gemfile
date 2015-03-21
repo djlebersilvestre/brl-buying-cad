@@ -18,9 +18,10 @@ gem 'descendants-loader'
 
 # Dev and test
 group :development, :test do
-  gem 'seed_dump'
-  gem 'web-console'
+  gem 'dotenv-rails'
   gem 'byebug'
+  gem 'web-console'
+  gem 'seed_dump'
 end
 
 # Test only

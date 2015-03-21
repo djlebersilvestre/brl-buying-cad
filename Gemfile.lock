@@ -71,6 +71,9 @@ GEM
       activesupport
     diff-lcs (1.2.5)
     docile (1.1.5)
+    dotenv (2.0.0)
+    dotenv-rails (2.0.0)
+      dotenv (= 2.0.0)
     equalizer (0.0.9)
     erubis (2.7.0)
     globalid (0.3.3)
@@ -263,6 +266,7 @@ DEPENDENCIES
   byebug
   database_cleaner
   descendants-loader
+  dotenv-rails
   mutant-rspec
   pg
   rails (= 4.2.0)

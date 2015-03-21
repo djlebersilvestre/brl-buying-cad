@@ -1,13 +1,13 @@
 default: &default
   adapter: postgresql
   encoding: utf8
-  timeout: 5000
-  pool: 5
-  database: brl_cad_development
-  username: postgres
-  password: testing
-  port: 5432
-  host: 127.0.0.1
+  timeout: <%= ENV.fetch('BRLCAD_PG_TIMEOUT').to_i %>
+  pool: <%= ENV.fetch('BRLCAD_PG_POOL').to_i %>
+  port: <%= ENV.fetch('BRLCAD_PG_PORT').to_i %>
+  host: <%= ENV.fetch('BRLCAD_PG_HOST') %>
+  database: <%= ENV.fetch('BRLCAD_PG_DATABASE') %>
+  username: <%= ENV.fetch('BRLCAD_PG_USERNAME') %>
+  password: <%= ENV.fetch('BRLCAD_PG_PASSWORD') %>
 
 development:
   <<: *default
@@ -18,4 +18,3 @@ test:
 
 production:
   <<: *default
-  database: brl_cad_production

@@ -6,16 +6,25 @@ module Overcommit
           path = './tmp/rubycritic'
 
           # Runs the critics
-          system("rubycritic app/ lib/ --path #{path} > /dev/null")
+          shell_respose = system(rubycritic_command(path))
+
           # Analysis
-          error = analysis(path)
+          error = if shell_respose
+                    analysis(path)
+                  else
+                    'Could not run rubycritic successfully. Try gem ' \
+                      'install rubycritic if the gem in not installed.'
+                  end
 
           return :fail, error if error
-
           :pass
         end
 
         private
+
+        def rubycritic_command(path)
+          "rubycritic app/ lib/ --path #{path} > /dev/null"
+        end
 
         def analysis(path)
           rates = parse_rates(path)

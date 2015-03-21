@@ -34,14 +34,12 @@ fi
 dkr_setup
 
 echo "Setting up Postgres over docker"
-source <(curl https://raw.githubusercontent.com/djlebersilvestre/docker-postgres/master/commands.sh)
-pg_setup
+source <(curl https://raw.githubusercontent.com/djlebersilvestre/docker-postgres-debian74/master/dkr-commands.sh)
 pg_start
 bundle exec rake db:setup
 
 echo "Setting up Redis over docker"
-source <(curl https://raw.githubusercontent.com/djlebersilvestre/linux-scripts/master/dkr-redis-commands.sh)
-redis_setup
+source <(curl https://raw.githubusercontent.com/djlebersilvestre/docker-redis-debian74/master/dkr-commands.sh)
 redis_start
 
 echo "Finally, testing for the first time"

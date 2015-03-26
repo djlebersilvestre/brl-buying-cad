@@ -1,8 +1,9 @@
 class RatesController < ApplicationController
   def index
+    # TODO: cleanup the controller and the view
     @rates_for_graph = ExchangeHouse.all.map do |house|
       { name: house.name.gsub(/CadRateFinder::/, ''),
-        data: get_rates_for_data_graph(house.rates) }
+        data: get_rates_for_data_graph(house.rates.last(30)) }
     end
   end
 

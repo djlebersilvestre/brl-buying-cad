@@ -1,6 +1,7 @@
 ---
 :verbose: <%= ENV.fetch('BRLCAD_SIDEKIQ_VERBOSE') %>
 :pidfile: <%= ENV.fetch('BRLCAD_SIDEKIQ_PIDFILE') %>
+:logfile: <%= ENV.fetch('BRLCAD_SIDEKIQ_LOGFILE') %>
 :concurrency: <%= ENV.fetch('BRLCAD_SIDEKIQ_CONCURRENCY').to_i %>
 :queues:
   - [high, 3]

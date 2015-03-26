@@ -13,4 +13,4 @@ RUN ./setup_prod_env.sh
 
 WORKDIR /var/www/brl-buying-cad
 
-#TODO: nginx, daemon tools
+#TODO: nginx

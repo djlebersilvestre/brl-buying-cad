@@ -17,6 +17,12 @@ gem 'sinatra', require: false
 gem 'abstract_method'
 gem 'descendants-loader'
 
+# For graphs
+gem 'chartkick'
+gem 'jquery-rails'
+gem 'turbolinks'
+gem 'therubyracer'
+
 # Dev and test
 group :development, :test do
   gem 'dotenv-rails'

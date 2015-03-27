@@ -20,3 +20,6 @@
 /log/*
 !/log/.keep
 /tmp
+
+# Ignore .env since is configured for each machine
+# .env

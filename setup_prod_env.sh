@@ -44,6 +44,6 @@ echo "Step 5 / $STEPS_NUM"
 echo "Finished all steps!"
 exit 0
 
-echo "*********************************************************************"
-echo "Don't forget to set the production passwords, URLs and others in .env"
-echo "*********************************************************************"
+echo "**********************************************************************************************"
+echo "Don't forget to set the production passwords, URLs and others in .env (copy from .env.example)"
+echo "**********************************************************************************************"

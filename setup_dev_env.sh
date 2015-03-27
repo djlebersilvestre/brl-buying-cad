@@ -12,6 +12,7 @@ rvm install ruby-2.2.1
 rvm use 2.2.1@brl-buying-cad --create
 
 echo "Vendorizing gems"
+cp .env.example .env
 bundle install --path vendor/bundle
 
 echo "Adding base gems to gemset"

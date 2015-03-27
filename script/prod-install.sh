@@ -1,6 +1,7 @@
 #!/bin/bash
 set -e
-source ./prod-vars.sh
+MYDIR="$(dirname "$(readlink -f "$0")")"
+source "$MYDIR"/prod-vars.sh
 
 echo "Configuring app under $APP_DIR"
 mkdir -p "$APP_DIR"

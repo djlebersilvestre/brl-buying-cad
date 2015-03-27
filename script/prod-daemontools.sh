@@ -1,6 +1,7 @@
 #!/bin/bash
 set -e
-source ./prod-vars.sh
+MYDIR="$(dirname "$(readlink -f "$0")")"
+source "$MYDIR"/prod-vars.sh
 
 setup_service() {
   mkdir -p "$SERVICE_DIR"/"$1"/log

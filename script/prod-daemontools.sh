@@ -1,6 +1,6 @@
 #!/bin/bash
 set -e
-source "${0%/*}"/prod-vars.sh
+source ./prod-vars.sh
 
 setup_service() {
   mkdir -p "$SERVICE_DIR"/"$1"/log

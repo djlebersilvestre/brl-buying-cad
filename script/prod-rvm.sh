@@ -1,6 +1,6 @@
 #!/bin/bash
 set -e
-source "${0%/*}"/prod-vars.sh
+source ./prod-vars.sh
 
 echo "Installing RVM and Ruby $RUBY_VERSION"
 gpg --keyserver hkp://keys.gnupg.net --recv-keys 409B6B1796C275462A1703113804BB82D39DC0E3

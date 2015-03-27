@@ -1,6 +1,6 @@
 #!/bin/bash
 set -e
-source "${0%/*}"/prod-vars.sh
+source ./prod-vars.sh
 
 echo "Configuring app under $APP_DIR"
 mkdir -p "$APP_DIR"

@@ -23,6 +23,7 @@ gem 'chartkick'
 gem 'jquery-rails'
 gem 'turbolinks'
 gem 'therubyracer'
+gem 'uglifier'
 
 # Dev and test
 group :development, :test do

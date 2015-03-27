@@ -22,4 +22,4 @@
 /tmp
 
 # Ignore .env since is configured for each machine
-# .env
+.env

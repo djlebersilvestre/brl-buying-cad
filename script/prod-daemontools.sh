@@ -5,7 +5,7 @@ source "${0%/*}"/prod-vars.sh
 setup_service() {
   mkdir -p "$SERVICE_DIR"/"$1"/log
   RUN="$SERVICE_DIR"/"$1"/run
-  echo -e '#!/bin/bash\ncd '"$APP_DIR"' && bundle exec dotenv '"$1" "$2" > "$RUN"
+  echo -e '#!/bin/bash\nsource /usr/local/rvm/scripts/rvm\ncd '"$APP_DIR"' && exec bundle exec dotenv '"$1" "$2" > "$RUN"
   chmod +x "$RUN"
 }
 

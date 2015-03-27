@@ -1,50 +1,34 @@
 #!/bin/bash
-
 set -e
-cd "$(dirname "$0")"
 
-APP_DIR=/var/www/brl-buying-cad
+scripts=${0%/*}/script
+rm -rf $scripts
+mkdir $scripts
 
+github="https://raw.githubusercontent.com/djlebersilvestre/brl-buying-cad/master/script"
+curl -sSL "$github/prod-packages.sh"    -o $scripts/prod-packages.sh
+curl -sSL "$github/prod-install.sh"     -o $scripts/prod-install.sh
+curl -sSL "$github/prod-daemontools.sh" -o $scripts/prod-daemontools.sh
+chmod +x -R $scripts
 
-echo "Installing PostgreSQL lib for the driver and git for deployment"
-apt-get update && apt-get upgrade -y && apt-get install -y libpq-dev git daemontools
+# Step 1 - packages:
+#   installs all basic packages such as Postgres client
+#
+# Step 2 - install:
+#   install the app. It clones the git repo and vendorize
+#
+# Step 3 - daemontools:
+#   setup process monitoring over the app and auto startup on boot
+STEPS_NUM=3
+echo "Step 1 / $STEPS_NUM"
+. $scripts/prod-packages.sh
+echo "Step 2 / $STEPS_NUM"
+. $scripts/prod-install.sh
+echo "Step 3 / $STEPS_NUM"
+. $scripts/prod-daemontools.sh
+echo "Finished all steps!"
+exit 0
 
-echo "Configuring app under /var/www"
-mkdir -p $APP_DIR
-git clone https://github.com/djlebersilvestre/brl-buying-cad.git $APP_DIR
-mkdir -p $APP_DIR/tmp/pids
-
-echo "Vendorizing gems"
-cd $APP_DIR
-source /usr/local/rvm/scripts/rvm
-bundle install --path vendor/bundle --without development test
-
-echo "Configuring daemontools to auto start the app (unicorn and sidekiq)"
-SERVICE_DIR=/etc/service
-
-mkdir -p $SERVICE_DIR/unicorn/log
-RUN_UNICORN=$SERVICE_DIR/unicorn/run
-echo -e '#!/bin/bash\ncd '$APP_DIR' && bundle exec dotenv unicorn -c config/unicorn.rb' > $RUN_UNICORN
-chmod +x $RUN_UNICORN
-RUN_UNICORN_LOG=$SERVICE_DIR/unicorn/log/run
-echo -e '#!/bin/bash\nexec 2>&1\nexec multilog t s10485760 n5 ./main' > $RUN_UNICORN_LOG
-chmod +x $RUN_UNICORN_LOG
-
-mkdir -p $SERVICE_DIR/sidekiq/log
-RUN_SIDEKIQ=$SERVICE_DIR/sidekiq/run
-echo -e '#!/bin/bash\ncd '$APP_DIR' && bundle exec dotenv sidekiq' > $RUN_SIDEKIQ
-chmod +x $RUN_SIDEKIQ
-RUN_SIDEKIQ_LOG=$SERVICE_DIR/sidekiq/log/run
-echo -e '#!/bin/bash\nexec 2>&1\nexec multilog t s10485760 n5 ./main' > $RUN_SIDEKIQ_LOG
-chmod +x $RUN_SIDEKIQ_LOG
-
-if grep -q "svscanboot" /etc/inittab; then
-  echo "Svscanboot already configured to be loaded on startup. Skipping this step."
-else
-  echo -e '\n# Svscanboot will load on startup and launch everyone under /etc/service' >> /etc/inittab
-  echo -e 'SV:123456:respawn:/usr/bin/svscanboot' >> /etc/inittab
-fi
-
-echo "******************************************************************************"
-echo "Don't forget to set the production passwords, URLs and others in $APP_DIR/.env"
-echo "******************************************************************************"
+echo "*********************************************************************"
+echo "Don't forget to set the production passwords, URLs and others in .env"
+echo "*********************************************************************"

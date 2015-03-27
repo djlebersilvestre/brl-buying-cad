@@ -1,5 +1,4 @@
 #!/bin/bash
-
 set -e
 
 echo "Installing PostgreSQL lib for the driver and git for deployment"

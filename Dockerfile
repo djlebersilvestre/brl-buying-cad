@@ -11,6 +11,7 @@ MAINTAINER Daniel Silvestre (djlebersilvestre@github.com)
 COPY script/prod-vars.sh /script/prod-vars.sh
 COPY script/prod-packages.sh /script/prod-packages.sh
 RUN /script/prod-packages.sh
+RUN rm -rf /var/lib/apt/lists/*
 
 # Install the app and vendorize
 COPY script/prod-install.sh /script/prod-install.sh
@@ -20,9 +21,7 @@ RUN /script/prod-install.sh
 COPY script/prod-daemontools.sh /script/prod-daemontools.sh
 RUN /script/prod-daemontools.sh
 
-# Remove this ASAP
-COPY ../prod-brl-buying-cad/.env /var/www/brl-buying-cad/.env
-
+# App dir
 WORKDIR /var/www/brl-buying-cad
 
 EXPOSE 3000

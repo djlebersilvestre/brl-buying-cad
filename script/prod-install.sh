@@ -1,5 +1,4 @@
 #!/bin/bash
-
 set -e
 source "${0%/*}"/prod-vars.sh
 

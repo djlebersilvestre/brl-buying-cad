@@ -10,7 +10,7 @@ apt-get install -y curl
 
 github="https://raw.githubusercontent.com/djlebersilvestre/brl-buying-cad/master/script"
 curl -sSL "$github/prod-packages.sh"    -o "$scripts"/prod-packages.sh
-curl -sSL "$github/prod-utf8"           -o "$scripts"/prod-utf8.sh
+curl -sSL "$github/prod-utf8.sh"        -o "$scripts"/prod-utf8.sh
 curl -sSL "$github/prod-rvm.sh"         -o "$scripts"/prod-rvm.sh
 curl -sSL "$github/prod-install.sh"     -o "$scripts"/prod-install.sh
 curl -sSL "$github/prod-daemontools.sh" -o "$scripts"/prod-daemontools.sh

@@ -3,6 +3,7 @@ ruby '2.2.1'
 
 # Rails and base gems
 gem 'rails', '4.2.0'
+gem 'dotenv-rails'
 gem 'newrelic_rpm'
 gem 'unicorn'
 gem 'pg'
@@ -25,7 +26,6 @@ gem 'therubyracer'
 
 # Dev and test
 group :development, :test do
-  gem 'dotenv-rails'
   gem 'byebug'
   gem 'web-console'
   gem 'seed_dump'

@@ -6,7 +6,7 @@ rm -rf "$scripts"
 mkdir "$scripts"
 
 apt-get update
-apt-get install curl
+apt-get install -y curl
 
 github="https://raw.githubusercontent.com/djlebersilvestre/brl-buying-cad/master/script"
 curl -sSL "$github/prod-packages.sh"    -o "$scripts"/prod-packages.sh

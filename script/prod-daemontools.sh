@@ -1,19 +1,19 @@
 #!/bin/bash
 
 set -e
-source ${0%/*}/prod-vars.sh
+source "${0%/*}"/prod-vars.sh
 
 setup_service() {
-  mkdir -p $SERVICE_DIR/$1/log
-  RUN=$SERVICE_DIR/$1/run
-  echo -e '#!/bin/bash\ncd '$APP_DIR' && bundle exec dotenv '$1 $2 > $RUN
-  chmod +x $RUN
+  mkdir -p "$SERVICE_DIR"/"$1"/log
+  RUN="$SERVICE_DIR"/"$1"/run
+  echo -e '#!/bin/bash\ncd '"$APP_DIR"' && bundle exec dotenv '"$1" "$2" > "$RUN"
+  chmod +x "$RUN"
 }
 
 setup_log() {
-  LOG=$SERVICE_DIR/$1/log/run
-  echo -e '#!/bin/bash\nexec 2>&1\nexec multilog t s10485760 n5 ./main' > $LOG
-  chmod +x $LOG
+  LOG="$SERVICE_DIR"/"$1"/log/run
+  echo -e '#!/bin/bash\nexec 2>&1\nexec multilog t s10485760 n5 ./main' > "$LOG"
+  chmod +x "$LOG"
 }
 
 init_svscanboot() {

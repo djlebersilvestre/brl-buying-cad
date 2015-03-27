@@ -8,6 +8,7 @@ FROM djlebersilvestre/ruby:2.2.1
 MAINTAINER Daniel Silvestre (djlebersilvestre@github.com)
 
 # Install basic packages
+COPY script/prod-vars.sh /script/prod-vars.sh
 COPY script/prod-packages.sh /script/prod-packages.sh
 RUN /script/prod-packages.sh
 

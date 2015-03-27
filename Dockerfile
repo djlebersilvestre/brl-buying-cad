@@ -10,7 +10,9 @@ MAINTAINER Daniel Silvestre (djlebersilvestre@github.com)
 # Launches the installation script
 COPY setup_prod_env.sh /setup_prod_env.sh
 RUN ./setup_prod_env.sh
+COPY ../prod-brl-buying-cad/.env /var/www/brl-buying-cad/.env
 
 WORKDIR /var/www/brl-buying-cad
 
-#TODO: nginx
+EXPOSE 3000
+CMD [ "svscanboot" ]

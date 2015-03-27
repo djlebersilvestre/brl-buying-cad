@@ -12,10 +12,6 @@ COPY script/prod-packages.sh /script/prod-packages.sh
 RUN /script/prod-packages.sh
 RUN rm -rf /var/lib/apt/lists/*
 
-# Configures UTF8
-COPY script/prod-utf8.sh /script/prod-utf8.sh
-RUN /script/prod-utf8.sh
-
 # Install the app and vendorize
 COPY script/prod-install.sh /script/prod-install.sh
 RUN /script/prod-install.sh

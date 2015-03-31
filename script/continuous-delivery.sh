@@ -2,6 +2,8 @@
 set -e
 
 TAG_REGEXP='v[0-9]{1,3}(\.[0-9]{1,3}){2}'
+DIR=$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )
+cd "$DIR"
 
 current_ip() {
   ifconfig | awk '/inet addr/{print substr($2,6)}' | grep -v 127.0.0.1 | head -n 1

@@ -50,6 +50,7 @@ echo "Step 6 / $STEPS_NUM"
 echo "Finished all steps!"
 exit 0
 
+# TODO: run vim to edit .env on the fly and restart the server
 echo "**********************************************************************************************"
 echo "Don't forget to set the production passwords, URLs and others in .env (copy from .env.example)"
 echo "**********************************************************************************************"

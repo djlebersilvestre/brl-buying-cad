@@ -7,7 +7,7 @@ SERVICE_DIR=/etc/service
 setup_service() {
   mkdir -p "$SERVICE_DIR"/"$1"/log
   RUN="$SERVICE_DIR"/"$1"/run
-  echo -e '#!/bin/bash\nsource /usr/local/rvm/scripts/rvm\ncd '"$APP_DIR"' && exec bundle exec dotenv '"$1" "$2" > "$RUN"
+  echo -e '#!/bin/bash\nexec 2>&1\nsource /usr/local/rvm/scripts/rvm\ncd '"$APP_DIR"' && exec bundle exec dotenv '"$1" "$2" > "$RUN"
   chmod +x "$RUN"
 }
 

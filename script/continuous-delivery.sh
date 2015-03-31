@@ -12,7 +12,7 @@ current_ip() {
 }
 
 current_tag() {
-  git name-rev --tags --name-only "$(git rev-parse HEAD)"
+  git describe --abbrev=0 --tags
 }
 
 latest_tag() {

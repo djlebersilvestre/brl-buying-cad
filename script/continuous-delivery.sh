@@ -11,7 +11,7 @@ current_tag() {
   git branch | head -n 1 | grep -Eo "$TAG_REGEXP"
 }
 
-lastest_tag() {
+latest_tag() {
   git fetch --tags
   git tag | grep -E "$TAG_REGEXP" | sort -V | head -n 1
 }
@@ -23,12 +23,13 @@ checkout_tag() {
 restart_app() {
   # TODO: no downtime deployment
   echo 'Restarting sidekiq'
-  svc -t /etc/service/sidekiq
+  # svc -t /etc/service/sidekiq
   echo 'Restarting unicorn'
-  svc -t /etc/service/unicorn
+  # svc -t /etc/service/unicorn
 }
 
 notify_deploy() {
+  source ../.env
   options="-a $BRLCAD_NEWRELIC_APPNAME"
   options="$options -u continuous-delivery-$(current_ip)"
   options="$options -l $BRLCAD_NEWRELIC_LICENSE"
@@ -36,14 +37,27 @@ notify_deploy() {
 
   echo "Notifying deployment of $BRLCAD_NEWRELIC_APPNAME to NewRelic"
   echo "Version deployed: $1"
-  bundle exec dotenv newrelic deployments "$options"
+  echo $options
+  # bundle exec dotenv newrelic deployments "$options"
 }
 
-# Check for new tag (compare with current)
-# Checkout new tag
-# Restart app
+deploy() {
+  local force=$1
+  local current_tag=`current_tag`
+  local latest_tag=`latest_tag`
 
-# TODO: How to handle migrations?
-# TODO: How to handle new env vars?
+  if [ "$force" == "-f" ] || [ "$current_tag" != "$latest_tag" ]; then
+    echo "Found new version. Updating current version ($current_tag) with the new one ($latest_tag)"
+    set -v
+    checkout_tag "$latest_tag"
+    restart_app
+    notify_deploy"$latest_tag"
+    set +v
+    # TODO: How to handle migrations?
+    # TODO: How to handle new env vars?
+  else
+    echo "No new versions were found. Running the latest release ($current_tag)"
+  fi
+}
 
 "$@"

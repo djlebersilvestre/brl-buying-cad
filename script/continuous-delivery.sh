@@ -40,6 +40,8 @@ notify_deploy() {
   echo "Notifying deployment of $BRLCAD_NEWRELIC_APPNAME to NewRelic"
   echo "Version deployed: $1"
   echo "$options"
+
+  source /usr/local/rvm/scripts/rvm
   bundle exec dotenv newrelic deployments "$options"
 }
 
@@ -50,11 +52,9 @@ deploy() {
 
   if [ "$force" == "-f" ] || [ "$current_tag" != "$latest_tag" ]; then
     echo "Found new version. Updating current version ($current_tag) with the new one ($latest_tag)"
-    set -v
     checkout_tag "$latest_tag"
     restart_app
     notify_deploy "$latest_tag"
-    set +v
     # TODO: How to handle migrations?
     # TODO: How to handle new env vars?
   else

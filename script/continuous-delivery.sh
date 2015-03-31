@@ -12,7 +12,7 @@ current_ip() {
 }
 
 current_tag() {
-  git describe --abbrev=0 --tags
+  git describe --tags
 }
 
 latest_tag() {

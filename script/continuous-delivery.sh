@@ -1,9 +1,11 @@
 #!/bin/bash
 set -e
 
-TAG_REGEXP='v[0-9]{1,3}(\.[0-9]{1,3}){2}'
 DIR=$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )
 cd "$DIR"
+source ../.env
+
+TAG_REGEXP='v[0-9]{1,3}(\.[0-9]{1,3}){2}'
 
 current_ip() {
   ifconfig | awk '/inet addr/{print substr($2,6)}' | grep -v 127.0.0.1 | head -n 1
@@ -31,7 +33,6 @@ restart_app() {
 }
 
 notify_deploy() {
-  source ../.env
   options="-a $BRLCAD_NEWRELIC_APPNAME"
   options="$options -u continuous-delivery-$(current_ip)"
   options="$options -l $BRLCAD_NEWRELIC_LICENSE"
@@ -40,7 +41,7 @@ notify_deploy() {
   echo "Notifying deployment of $BRLCAD_NEWRELIC_APPNAME to NewRelic"
   echo "Version deployed: $1"
   echo "$options"
-  # bundle exec dotenv newrelic deployments "$options"
+  cd .. && bundle exec dotenv newrelic deployments "$options" && cd $DIR
 }
 
 deploy() {

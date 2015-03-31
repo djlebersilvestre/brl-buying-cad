@@ -10,8 +10,8 @@ add_cron() {
     local logfile="$APP_DIR"/log/deploy.log
     local script="$APP_DIR"/script/continuous-delivery.sh
 
-    local cron_cmd="date +'%Y-%m-%d %H:%M:%S' >> $logfile"
-    local cron_cmd="$cron_cmd && $script deploy >> $logfile"
+    local cron_cmd="date +'\%Y-\%m-\%d \%H:\%M:\%S' >> $logfile 2>&1"
+    local cron_cmd="$cron_cmd && $script deploy >> $logfile 2>&1"
     local cron_line="*/10 * * * *    root    $cron_cmd"
 
     echo "$cron_line" >> /etc/crontab

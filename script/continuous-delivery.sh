@@ -22,6 +22,9 @@ latest_tag() {
 
 checkout_tag() {
   git checkout tags/"$1"
+
+  source /usr/local/rvm/scripts/rvm
+  bundle install --path vendor/bundle --without development test
 }
 
 restart_app() {

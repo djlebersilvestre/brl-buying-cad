@@ -1,5 +1,6 @@
 #!/bin/bash
 set -e
+# TODO: use prov-vars
 APP_DIR=/var/www/brl-buying-cad
 
 echo "Configuring app under $APP_DIR"

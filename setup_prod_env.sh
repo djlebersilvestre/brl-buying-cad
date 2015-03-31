@@ -1,7 +1,8 @@
 #!/bin/bash
 set -e
 
-scripts=${0%/*}/script
+DIR=$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)
+scripts="$DIR"/script
 rm -rf "$scripts"
 mkdir "$scripts"
 
@@ -30,7 +31,10 @@ chmod +x -R "$scripts"
 #
 # Step 5 - daemontools:
 #   setup process monitoring over the app and auto startup on boot
-STEPS_NUM=5
+#
+# Step 6 - cd:
+#   configure continuous delivery script with cron
+STEPS_NUM=6
 echo "Step 1 / $STEPS_NUM"
 . "$scripts"/prod-packages.sh
 echo "Step 2 / $STEPS_NUM"
@@ -41,6 +45,8 @@ echo "Step 4 / $STEPS_NUM"
 . "$scripts"/prod-install.sh
 echo "Step 5 / $STEPS_NUM"
 . "$scripts"/prod-daemontools.sh
+echo "Step 6 / $STEPS_NUM"
+. "$scripts"/prod-cd.sh
 echo "Finished all steps!"
 exit 0
 

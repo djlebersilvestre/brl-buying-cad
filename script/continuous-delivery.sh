@@ -25,11 +25,12 @@ checkout_tag() {
 }
 
 restart_app() {
+  # TODO: move this to an external script and include in this one
   # TODO: no downtime deployment
   echo 'Restarting sidekiq'
-  # svc -t /etc/service/sidekiq
+  svc -t /etc/service/sidekiq
   echo 'Restarting unicorn'
-  # svc -t /etc/service/unicorn
+  svc -t /etc/service/unicorn
 }
 
 notify_deploy() {

@@ -41,7 +41,7 @@ notify_deploy() {
   echo "Notifying deployment of $BRLCAD_NEWRELIC_APPNAME to NewRelic"
   echo "Version deployed: $1"
   echo "$options"
-  cd .. && bundle exec dotenv newrelic deployments "$options" && cd $DIR
+  cd .. && bundle exec dotenv newrelic deployments "$options" && cd "$DIR"
 }
 
 deploy() {

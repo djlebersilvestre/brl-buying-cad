@@ -290,7 +290,6 @@ PLATFORMS
 
 DEPENDENCIES
   abstract_method
-  autoprefixer-rails
   bootstrap-sass
   byebug
   chartkick

@@ -12,7 +12,7 @@ add_cron() {
 
     local cron_cmd="date +'\%Y-\%m-\%d \%H:\%M:\%S' >> $logfile 2>&1"
     local cron_cmd="$cron_cmd && $script deploy >> $logfile 2>&1"
-    local cron_line="*/10 * * * *    root    $cron_cmd"
+    local cron_line="*/2 * * * *    root    $cron_cmd"
 
     echo "$cron_line" >> /etc/crontab
   fi

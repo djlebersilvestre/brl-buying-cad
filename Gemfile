@@ -18,9 +18,10 @@ gem 'sinatra', require: false
 gem 'abstract_method'
 gem 'descendants-loader'
 
-# For graphs
-gem 'chartkick'
+# For views
 gem 'jquery-rails'
+gem 'bootstrap-sass'
+gem 'chartkick'
 gem 'turbolinks'
 gem 'therubyracer'
 gem 'uglifier'

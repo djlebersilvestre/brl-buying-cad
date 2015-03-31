@@ -4,7 +4,7 @@ set -e
 cd "$(dirname "$0")"
 
 echo "Installing PostgreSQL lib - for the driver"
-sudo apt-get install -y libpq-dev shellcheck
+sudo apt-get update && sudo apt-get install -y libpq-dev
 
 echo "Loading RVM - it must be installed as user mode"
 [[ -s "$HOME/.rvm/scripts/rvm" ]] && source "$HOME/.rvm/scripts/rvm"
@@ -19,6 +19,11 @@ echo "Adding base gems to gemset"
 gem install rubocop
 gem install rubycritic
 gem install overcommit
+gem install scss-lint
+
+echo "Installing dependencies for overcommit gem"
+sudo apt-get install -y npm shellcheck scss-lint
+sudo npm install -g eslint jscs jshint
 
 echo "Configuring overcommit (to apply git hooks - quality threshold)"
 overcommit --install
@@ -44,6 +49,7 @@ source <(curl https://raw.githubusercontent.com/djlebersilvestre/docker-redis-de
 redis_start
 
 echo "Finally, testing for the first time"
+cp .env.example .env
 bundle exec spring rspec
 
 echo "Running everything attached to overcommit (specs too)  ;)"

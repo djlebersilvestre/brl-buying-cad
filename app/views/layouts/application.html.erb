@@ -1,16 +1,25 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>Buying Canadian Dolars</title>
-  <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track' => true %>
-  <%= stylesheet_link_tag 'application', '//assets.locaweb.com.br/locastyle/3.7.1/stylesheets/locastyle.css' %>
-  <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
-  <%= javascript_include_tag 'application', '//assets.locaweb.com.br/locastyle/3.7.1/javascripts/locastyle.js' %>
-  <%= csrf_meta_tags %>
+<title>Buying Canadian Dollar</title>
+<%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
+<%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
+<%= csrf_meta_tags %>
 </head>
-<body>
-
-<%= yield %>
-
+<body margin="30">
+<div class="panel panel-default">
+  <div class="panel-body">
+    <div id="main-container" class="container-fluid">
+      <div class="row" margin="-15px;" margin-left="-15px;">
+        <div class="page-header">
+          <h1>Buying Canadian Dollars <small>Beta</small></h1>
+        </div>
+      </div>
+      <div class="row">
+        <%= yield %>
+      </div>
+    </div>
+  </div>
+</div>
 </body>
 </html>

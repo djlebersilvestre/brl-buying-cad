@@ -51,7 +51,7 @@ deploy() {
     set -v
     checkout_tag "$latest_tag"
     restart_app
-    notify_deploy"$latest_tag"
+    notify_deploy "$latest_tag"
     set +v
     # TODO: How to handle migrations?
     # TODO: How to handle new env vars?

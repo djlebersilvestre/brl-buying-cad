@@ -21,6 +21,7 @@ gem 'descendants-loader'
 # For views
 gem 'jquery-rails'
 gem 'bootstrap-sass'
+gem 'autoprefixer-rails'
 gem 'chartkick'
 gem 'turbolinks'
 gem 'therubyracer'

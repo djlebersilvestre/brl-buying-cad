@@ -22,8 +22,7 @@ gem install overcommit
 gem install scss-lint
 
 echo "Installing dependencies for overcommit gem"
-sudo apt-get install -y npm shellcheck scss-lint
-sudo npm install -g eslint jscs jshint
+sudo apt-get install -y shellcheck scss-lint
 
 echo "Configuring overcommit (to apply git hooks - quality threshold)"
 overcommit --install

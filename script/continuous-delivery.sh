@@ -37,14 +37,14 @@ notify_deploy() {
 
   echo "Notifying deployment of $BRLCAD_NEWRELIC_APPNAME to NewRelic"
   echo "Version deployed: $1"
-  echo $options
+  echo "$options"
   # bundle exec dotenv newrelic deployments "$options"
 }
 
 deploy() {
   local force=$1
-  local current_tag=`current_tag`
-  local latest_tag=`latest_tag`
+  local current_tag=$(current_tag)
+  local latest_tag=$(latest_tag)
 
   if [ "$force" == "-f" ] || [ "$current_tag" != "$latest_tag" ]; then
     echo "Found new version. Updating current version ($current_tag) with the new one ($latest_tag)"

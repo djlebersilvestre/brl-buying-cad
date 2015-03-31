@@ -12,7 +12,7 @@ current_ip() {
 }
 
 current_tag() {
-  git branch | head -n 1 | grep -Eo "$TAG_REGEXP"
+  git name-rev --tags --name-only "$(git rev-parse HEAD)"
 }
 
 latest_tag() {

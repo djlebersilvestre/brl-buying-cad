@@ -17,7 +17,7 @@ current_tag() {
 
 latest_tag() {
   git fetch --tags
-  git tag | grep -E "$TAG_REGEXP" | sort -V | head -n 1
+  git tag | grep -E "$TAG_REGEXP" | sort -V | tail -n 1
 }
 
 checkout_tag() {
